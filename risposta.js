@@ -25,6 +25,8 @@ console.log(user1.valutaEta(user2));
 console.log(user2.valutaEta(user3));
 console.log(user1.valutaEta(user3));
 
+// secondo
+
 class Pet {
   constructor(petName, ownerName, species, breed) {
     this.petName = petName;
@@ -37,8 +39,6 @@ class Pet {
     return pet1.ownerName === pet2.ownerName;
   }
 }
-
-// 2
 
 document.getElementById("add").addEventListener("click", function () {
   let petName = document.getElementById("petName-field").value;
@@ -63,6 +63,12 @@ function displayPet(pet) {
   let listItem = document.createElement("li");
   listItem.textContent = `Nome: ${pet.petName}, Padrone: ${pet.ownerName}, Specie: ${pet.species}, Razza: ${pet.breed}`;
   petList.appendChild(listItem);
+
+  pets.forEach((existingPet) => {
+    if (existingPet !== pet && Pet.sameOwner(existingPet, pet)) {
+      console.log(true);
+    }
+  });
 }
 
 function clearForm() {
